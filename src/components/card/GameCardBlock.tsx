@@ -3,7 +3,6 @@ import { Difficulty, GameCard, GameMode, Player } from "../../type";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import { useState } from "react";
 import gameCardsData from "../../assets/GameCardsData";
-import PlayerBlock from "../player/PlayerBlock";
 import PlayerSelector from "../player/PlayerSelector";
 
 type GameCardBlockProps = {
