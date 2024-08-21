@@ -1,4 +1,4 @@
-import { GameMode, Player } from "../type";
+import { GameConfiguration, GameMode, Player } from "../type";
 import NewPlayer from "../components/player/NewPlayerBlock";
 import PlayerBlock from "../components/player/PlayerBlock";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
@@ -8,10 +8,9 @@ import { useNavigate } from "react-router-dom";
 type HomeProps = {
   setPlayers: (players: Player[]) => void;
   players: Player[];
-  setMode: (mode: GameMode) => void;
-  mode: GameMode;
+  setGameConfig: (gameConfig: GameConfiguration) => void;
+  gameConfig: GameConfiguration;
 };
-
 
 const avatars: IconName[] = [
   "lemon",
@@ -24,7 +23,7 @@ const avatars: IconName[] = [
   "hotdog",
 ];
 
-const Home = ({ setPlayers, players, setMode, mode }: HomeProps) => {
+const Home = ({ setPlayers, players, setGameConfig, gameConfig }: HomeProps) => {
   const navigate = useNavigate(); 
 
   const addPlayer = (name: string) => {
@@ -50,12 +49,22 @@ const Home = ({ setPlayers, players, setMode, mode }: HomeProps) => {
     setPlayers(newPlayers);
   };
 
+  const setSpecialRate = () => {
+    let newSpecialRate = gameConfig.specialRate + 1
+    newSpecialRate = newSpecialRate > 5 ? 1 : newSpecialRate;
+    setGameConfig({ ...gameConfig, specialRate: newSpecialRate });
+  }
+
   const canAddPlayer = avatars.length > players.length;
   const enoughPlayers = players.length >= 2;
 
   const startGame = () => {
     navigate("/game");
   };
+
+  const setGameMode = (mode: GameMode) => {
+    setGameConfig({ ...gameConfig, gameMode: mode });
+  }
 
   return (
     <div className="players">
@@ -72,13 +81,19 @@ const Home = ({ setPlayers, players, setMode, mode }: HomeProps) => {
       </div>
       {canAddPlayer && <NewPlayer addPlayer={addPlayer}></NewPlayer>}
       <div className="game-block" >
-        <BoolSwitch setMode={setMode} mode={mode} />
+        <button
+          className={"special-rate button"}
+          onClick={setSpecialRate}
+        >
+          {gameConfig.specialRate}
+        </button>
+        <BoolSwitch setMode={setGameMode} mode={gameConfig.gameMode} />
         <button
           className={"start-game button"}
           onClick={startGame}
           disabled={!enoughPlayers}
         >
-          Commencer partie {mode}
+          Commencer partie {gameConfig.gameMode}
         </button>
       </div>
     </div>

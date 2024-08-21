@@ -10,9 +10,19 @@ type Player = {
 type GameCard = {
   text: string;
   difficulty: Difficulty;
-  value: number;
   image: string;
 };
+
+type GameConfiguration = {
+  gameMode: GameMode;
+  availableDifficulty: Array<Difficulty>;
+  specialRate: number;
+}
+
+enum CardType {
+  number = "number",
+  special = "special",
+}
 
 enum GameMode {
   Soft = "soft",
@@ -23,7 +33,8 @@ enum Difficulty {
   Easy = "easy",
   Medium = "medium",
   Hard = "hard",
+  VeryHard = "veryHard",
 }
 
-export type { Player, GameCard };
-export { GameMode, Difficulty };
+export type { Player, GameCard, GameConfiguration };
+export { GameMode, Difficulty, CardType };

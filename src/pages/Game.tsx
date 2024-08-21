@@ -1,13 +1,17 @@
-import { GameMode, Player } from "../type";
+import { GameConfiguration, GameMode, Player } from "../type";
 import GameCardBlock from "../components/card/GameCardBlock";
 
 type GameProps = {
   players: Player[];
   setPlayers: (players: Player[]) => void;
-  mode: GameMode;
+  gameConfig: GameConfiguration;
 };
 
-const Game = ({ mode, players, setPlayers }: GameProps) => {
+const Game = ({ gameConfig, players, setPlayers }: GameProps) => {
+
+  if (players.length === 0){
+    window.location.href = "/";
+  } 
 
   const setScorePlayer = (value: number, player: Player) => {
     const newPlayers = players.map((p) => {
@@ -18,13 +22,13 @@ const Game = ({ mode, players, setPlayers }: GameProps) => {
     });
     setPlayers(newPlayers);
   }
-  
+
   return (
     <div className="game-container">
       <div className="game-cards-container">
-        <GameCardBlock mode={mode}  key={1} players={players} setPlayerScore={setScorePlayer} />
-        <GameCardBlock mode={mode}  key={2} players={players} setPlayerScore={setScorePlayer} />
-        <GameCardBlock mode={mode}  key={3} players={players} setPlayerScore={setScorePlayer} />
+        <GameCardBlock gameConfig={gameConfig}  key={"game-card-1"} players={players} setPlayerScore={setScorePlayer} />
+        <GameCardBlock gameConfig={gameConfig}  key={"game-card-2"} players={players} setPlayerScore={setScorePlayer} />
+        <GameCardBlock gameConfig={gameConfig}  key={"game-card-3"} players={players} setPlayerScore={setScorePlayer} />
       </div>
     </div>
   );
