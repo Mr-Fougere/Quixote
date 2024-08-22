@@ -8,47 +8,22 @@ const easyGameCards:GameCard[] = [
   },
   {
     difficulty: Difficulty.Easy,
-    text: "NEGATIVE NUMBER CARD SUM",
+    text: "NEGATIVE CARD SUM",
     image: "https://via.placeholder.com/150",
   },
   {
     difficulty: Difficulty.Easy,
-    text: "POSITIVE NUMBER CARD SUM",
+    text: "POSITIVE CARD SUM",
     image: "https://via.placeholder.com/150",
   },
   {
     difficulty: Difficulty.Easy,
-    text: "EVEN NUMBER CARD SUM",
+    text: "EVEN CARD SUM",
     image: "https://via.placeholder.com/150",
   },
   {
     difficulty: Difficulty.Easy,
-    text: "ODD NUMBER CARD SUM",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Easy,
-    text: "THREE SAME FIGURE CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Easy,
-    text: "THREE FIGURE CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Easy,
-    text: "THREE DIAMOND CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Easy,
-    text: "THREE HEART CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Easy,
-    text: "THREE CLOVER CARDS",
+    text: "ODD CARD SUM",
     image: "https://via.placeholder.com/150",
   },
   {
@@ -56,57 +31,52 @@ const easyGameCards:GameCard[] = [
     text: "THREE SAME SIGN",
     image: "https://via.placeholder.com/150",
   },
-  {
-    difficulty: Difficulty.Easy,
-    text: "THREE SPADE CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Easy,
-    text: "THREE SUIT CARDS",
-    image: "https://via.placeholder.com/150",
-  },
 ];
 
 const mediumGameCards:GameCard[] = [
   {
-    difficulty: Difficulty.Easy,
+    difficulty: Difficulty.Medium,
+    text: "THREE SUIT CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Medium,
+    text: "THREE SPADE CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Medium,
+    text: "THREE SAME FIGURE CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Medium,
+    text: "THREE FIGURE CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Medium,
+    text: "THREE DIAMOND CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Medium,
+    text: "THREE HEART CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Medium,
+    text: "THREE CLOVER CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Medium,
     text: "ANY TWO PAIR",
     image: "https://via.placeholder.com/150",
   },
   {
     difficulty: Difficulty.Medium,
-    text: "FOUR SUIT CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Medium,
-    text: "FOUR FIGURE CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Medium,
     text: "EACH SIGN CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Medium,
-    text: "FOUR SPADE CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Medium,
-    text: "FOUR DIAMOND CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Medium,
-    text: "FOUR HEART CARDS",
-    image: "https://via.placeholder.com/150",
-  },
-  {
-    difficulty: Difficulty.Medium,
-    text: "FOUR CLOVER CARDS",
     image: "https://via.placeholder.com/150",
   },
   {
@@ -122,6 +92,17 @@ const mediumGameCards:GameCard[] = [
 ];
 
 const hardGameCards:GameCard[] = [
+  
+  {
+    difficulty: Difficulty.Hard,
+    text: "FOUR SUIT CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Hard,
+    text: "FOUR FIGURE CARDS",
+    image: "https://via.placeholder.com/150",
+  },
   {
     difficulty: Difficulty.Hard,
     text: "ONLY FIGURE CARDS",
@@ -172,56 +153,76 @@ const hardGameCards:GameCard[] = [
     text: "FULL SUIT",
     image: "https://via.placeholder.com/150",
   },
+  {
+    difficulty: Difficulty.Hard,
+    text: "FOUR SPADE CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Hard,
+    text: "FOUR DIAMOND CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Hard,
+    text: "FOUR HEART CARDS",
+    image: "https://via.placeholder.com/150",
+  },
+  {
+    difficulty: Difficulty.Hard,
+    text: "FOUR CLOVER CARDS",
+    image: "https://via.placeholder.com/150",
+  },
 ];
 
 const veryHardGameCards:GameCard[] = [
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "13579",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "2468J",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "ONLY EVEN NUMBER CARDS",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "ONLY ODD NUMBER CARDS",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "ONLY SPADE CARDS",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "ONLY DIAMOND CARDS",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "ONLY HEART CARDS",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "ONLY CLOVER CARDS",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "SUITE ROYALE",
     image: "https://via.placeholder.com/150",
   },
   {
-    difficulty: Difficulty.Hard,
+    difficulty: Difficulty.VeryHard,
     text: "QUINTE FLUSH ROYALE",
     image: "https://via.placeholder.com/150",
   },
@@ -238,15 +239,15 @@ const numberLevels: Record<Difficulty, { max: number; min: number }[]> = {
   [Difficulty.Easy]: [{ max: 44, min: 20 }],
   [Difficulty.Medium]: [
     { max: 54, min: 45 },
-    { max: 19, min: 10 },
+    { max: 19, min: 10 }
   ],
   [Difficulty.Hard]: [
     { max: 60, min: 55 },
-    { max: 9, min: 4 },
+    { max: 9, min: 4 }
   ],
   [Difficulty.VeryHard]: [
     { max: 64, min: 61 },
-    { max: 3, min: 0 },
+    { max: 3, min: 0 }
   ],
 };
 

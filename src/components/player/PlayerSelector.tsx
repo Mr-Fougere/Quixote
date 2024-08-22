@@ -9,7 +9,7 @@ type PlayerProps = {
 const PlayerSelector = ({ selectPlayer, player }: PlayerProps) => {
 
   return (
-    <div key={player.name} className="player-block"  onClick={() => selectPlayer(player)} >
+    <div key={player.name} className="player-block selector"  onClick={() => selectPlayer(player)} >
       <FontAwesomeIcon icon={ player.avatar} className="player-avatar" />
       <span className="player-name">{player.name}</span>
       <span className="player-score">{player.score}</span>

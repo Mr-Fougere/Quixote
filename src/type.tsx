@@ -15,7 +15,7 @@ type GameCard = {
 
 type GameConfiguration = {
   gameMode: GameMode;
-  availableDifficulty: Array<Difficulty>;
+  availableDifficulty: Difficulty[];
   specialRate: number;
   started: boolean;
 }
@@ -34,7 +34,7 @@ enum Difficulty {
   Easy = "easy",
   Medium = "medium",
   Hard = "hard",
-  VeryHard = "veryHard",
+  VeryHard = "very_hard",
 }
 
 export type { Player, GameCard, GameConfiguration };

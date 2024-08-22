@@ -24,7 +24,8 @@ import {
   faWineBottle,
   faGlassWater,
   faPlus,
-  faRankingStar
+  faRankingStar,
+  fa5
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -42,6 +43,7 @@ library.add(
   fa1,
   fa2,
   fa3,
+  fa5,
   faWhiskeyGlass,
   faWineBottle,
   faGlassWater,
@@ -61,7 +63,7 @@ const App = () => {
       ? JSON.parse(savedGameConfig)
       : {
           gameMode: GameMode.Soft,
-          availableDifficulty: [Difficulty.Easy, Difficulty.Medium],
+          availableDifficulty: [ Difficulty.Easy, Difficulty.Medium],
           specialRate: 1,
         };
   }

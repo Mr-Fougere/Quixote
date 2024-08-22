@@ -1,9 +1,10 @@
-import { GameConfiguration, GameMode, Player } from "../type";
+import { Difficulty, GameConfiguration, GameMode, Player } from "../type";
 import NewPlayer from "../components/player/NewPlayerBlock";
 import PlayerBlock from "../components/player/PlayerBlock";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import BoolSwitch from "../components/button/BoolSwitch";
 import { useNavigate } from "react-router-dom";
+import DifficultySelector from "../components/button/DifficultySelector";
 
 type HomeProps = {
   setPlayers: (players: Player[]) => void;
@@ -70,6 +71,15 @@ const Home = ({ setPlayers, players, setGameConfig, gameConfig }: HomeProps) => 
     if(gameConfig.started) return
     setGameConfig({ ...gameConfig, gameMode: mode });
   }
+  const cancelGame = () => {
+    setGameConfig({ ...gameConfig, started: false, specialRate: 1, availableDifficulty: [Difficulty.Easy, Difficulty.Medium] });
+  }
+
+  const setDifficulties = (difficulties: Difficulty[]) => {
+    console.log(difficulties);
+    
+    setGameConfig({ ...gameConfig, availableDifficulty: difficulties });
+  }
 
   return (
     <div className="players">
@@ -101,6 +111,14 @@ const Home = ({ setPlayers, players, setGameConfig, gameConfig }: HomeProps) => 
         >
           { gameConfig.started ? "Reprendre" : "Commencer"} partie {gameConfig.gameMode}
         </button>
+        {gameConfig.started ?
+        <button
+          className={"start-game button"}
+          onClick={cancelGame}
+        >
+          Annuler partie
+        </button>: null }
+        <DifficultySelector setDifficulties={setDifficulties} difficulties={gameConfig.availableDifficulty}/>
       </div>
     </div>
   );
