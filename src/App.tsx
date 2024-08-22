@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Game from "./pages/Game";
 import "./App.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Difficulty, GameConfiguration, GameMode, Player } from "./type";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -50,8 +50,32 @@ library.add(
 );  
 
 const App = () => {
-  const [players, setPlayers] = useState<Player[]>([]);
-  const [gameConfig, setGameConfig] = useState<GameConfiguration>({ gameMode: GameMode.Soft, availableDifficulty: [Difficulty.Easy, Difficulty.Medium], specialRate: 1 });
+  const getPlayers = ():Player[] | [] => {
+    const savedPlayers = localStorage.getItem('players');
+    return savedPlayers ? JSON.parse(savedPlayers) : [];
+  }
+
+  const getGameConfig = ():GameConfiguration => {
+    const savedGameConfig = localStorage.getItem('gameConfig');
+    return savedGameConfig
+      ? JSON.parse(savedGameConfig)
+      : {
+          gameMode: GameMode.Soft,
+          availableDifficulty: [Difficulty.Easy, Difficulty.Medium],
+          specialRate: 1,
+        };
+  }
+
+  const [players, setPlayers] = useState<Player[]>(getPlayers);
+  const [gameConfig, setGameConfig] = useState<GameConfiguration>(getGameConfig);
+
+  useEffect(() => {
+    localStorage.setItem('players', JSON.stringify(players));
+  }, [players]);
+
+  useEffect(() => {
+    localStorage.setItem('gameConfig', JSON.stringify(gameConfig));
+  }, [gameConfig]);
 
   return (
     <Router>

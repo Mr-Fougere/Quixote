@@ -27,6 +27,7 @@ const Home = ({ setPlayers, players, setGameConfig, gameConfig }: HomeProps) => 
   const navigate = useNavigate(); 
 
   const addPlayer = (name: string) => {
+
     const newPlayers = players.slice();
     const remainingAvatars = avatars.filter(
       (a) => !newPlayers.some((p) => p.avatar === a)
@@ -43,6 +44,7 @@ const Home = ({ setPlayers, players, setGameConfig, gameConfig }: HomeProps) => 
   };
 
   const removePlayer = (uuid: string) => {
+    if(gameConfig.started) return
     const newPlayers = players.slice();
     const index = newPlayers.findIndex((player) => player.uuid === uuid);
     newPlayers.splice(index, 1);
@@ -50,19 +52,22 @@ const Home = ({ setPlayers, players, setGameConfig, gameConfig }: HomeProps) => 
   };
 
   const setSpecialRate = () => {
+    if(gameConfig.started) return
     let newSpecialRate = gameConfig.specialRate + 1
     newSpecialRate = newSpecialRate > 5 ? 1 : newSpecialRate;
     setGameConfig({ ...gameConfig, specialRate: newSpecialRate });
   }
 
-  const canAddPlayer = avatars.length > players.length;
+  const canAddPlayer = avatars.length > players.length &&  !gameConfig.started; 
   const enoughPlayers = players.length >= 2;
 
   const startGame = () => {
+    setGameConfig({ ...gameConfig, started: true });
     navigate("/game");
   };
 
   const setGameMode = (mode: GameMode) => {
+    if(gameConfig.started) return
     setGameConfig({ ...gameConfig, gameMode: mode });
   }
 
@@ -82,18 +87,19 @@ const Home = ({ setPlayers, players, setGameConfig, gameConfig }: HomeProps) => 
       {canAddPlayer && <NewPlayer addPlayer={addPlayer}></NewPlayer>}
       <div className="game-block" >
         <button
+          disabled={gameConfig.started}
           className={"special-rate button"}
           onClick={setSpecialRate}
         >
           {gameConfig.specialRate}
         </button>
-        <BoolSwitch setMode={setGameMode} mode={gameConfig.gameMode} />
+        <BoolSwitch setMode={setGameMode} mode={gameConfig.gameMode} disabled={gameConfig.started} />
         <button
           className={"start-game button"}
           onClick={startGame}
           disabled={!enoughPlayers}
         >
-          Commencer partie {gameConfig.gameMode}
+          { gameConfig.started ? "Reprendre" : "Commencer"} partie {gameConfig.gameMode}
         </button>
       </div>
     </div>

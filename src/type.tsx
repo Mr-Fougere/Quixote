@@ -17,6 +17,7 @@ type GameConfiguration = {
   gameMode: GameMode;
   availableDifficulty: Array<Difficulty>;
   specialRate: number;
+  started: boolean;
 }
 
 enum CardType {
