@@ -188,9 +188,9 @@ const GameCardBlock = ({
           >
             <FontAwesomeIcon icon={cornerIcon()} />
           </div>
-          <div className="game-card-text revert"> {gameCard.text}</div>
-          <div className="separator"></div>
           <div className="game-card-text"> {gameCard.text}</div>
+          <div className="separator"></div>
+          <div className="game-card-text revert"> {gameCard.text}</div>
         </div>
       </div>
       <div className={`game-card-back ${gameCard.difficulty}`}>
