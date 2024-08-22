@@ -11,7 +11,6 @@ import { IconName } from "@fortawesome/fontawesome-svg-core";
 import { useState } from "react";
 import PlayerSelector from "../player/PlayerSelector";
 import Data from "../../assets/Data";
-import { number } from "prop-types";
 
 type GameCardBlockProps = {
   gameConfig: GameConfiguration;
@@ -27,7 +26,6 @@ const GameCardBlock = ({
   players,
   setPlayerScore,
 }: GameCardBlockProps) => {
-  const littleDefault = () => {};
 
   const randomDegree = (): number => {
     return (

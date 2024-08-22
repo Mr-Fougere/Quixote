@@ -73,7 +73,7 @@ const Home = ({ setPlayers, players, setGameConfig, gameConfig }: HomeProps) => 
 
   return (
     <div className="players">
-      <div >Quixote</div>
+      <div >Kixotte</div>
       <h3>{players.length}/8 joueurs</h3>
       <div className="players-list">
         {players.map((player) => (

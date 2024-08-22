@@ -1,4 +1,4 @@
-import { GameConfiguration, GameMode, Player } from "../type";
+import { GameConfiguration, Player } from "../type";
 import GameCardBlock from "../components/card/GameCardBlock";
 
 type GameProps = {
